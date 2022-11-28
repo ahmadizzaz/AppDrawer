@@ -1,0 +1,62 @@
+/* Icon set - http://ionicons.com/ */
+@import url(https://fonts.googleapis.com/css?family=Raleway:400);
+@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
+
+body{
+    background-color: #404258;
+}
+figure.appCard {
+    font-family: 'Raleway', Arial, sans-serif;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+    min-width: 200px;
+    max-width: 150px;
+    max-height: 250px;
+    width: 100%;
+    background: #404258;
+    text-align: center;
+    border-radius: 8px;
+    display: inline-block;
+}
+figure.appCard * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: all 0.6s ease;
+    transition: all 0.6s ease;
+}
+figure.appCard img {
+    opacity: 1;
+    width: 100%;
+    display: block;
+}
+figure.appCard figcaption {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 10px 12px 5px;
+    position: absolute;
+}
+figure.appCard h4 {
+    color: #404258;
+    text-shadow: black 1px 1px;
+    font-weight: 400;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+figure.appCard:hover img,
+figure.appCard.hover img {
+    opacity: 0.6;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+
+

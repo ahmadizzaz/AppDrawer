@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.web.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #404258;" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.izzaz.appdrawer.AppDrawerController">
+   <children>
+
+
+                            <Label fx:id="welcomeText" layoutX="541.0" layoutY="227.0" prefHeight="17.0" prefWidth="198.0" />
+      <HBox layoutX="252.0" layoutY="84.0" prefHeight="25.0" prefWidth="117.0">
+         <children>
+            <ChoiceBox fx:id="itemCountFilter" prefHeight="25.0" prefWidth="42.0" value="3">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="3" />
+                        <String fx:value="5" />
+                    </FXCollections>
+                </items>
+            </ChoiceBox>
+            <Label text="per row" underline="true">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+         </children>
+      </HBox>
+      <Label layoutX="196.0" layoutY="84.0" prefHeight="31.0" prefWidth="56.0" text="Show" underline="true">
+         <font>
+            <Font size="21.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+       <Button fx:id="btn" layoutX="403.0" layoutY="27.0" onAction="#onHelloButtonClick" style="-fx-background-color: #6B728E; -fx-background-radius: 40;" text="Add new App" />
+      <VBox prefHeight="200.0" prefWidth="100.0" />
+      <VBox layoutX="196.0" layoutY="121.0" prefHeight="582.0" prefWidth="1056.0">
+         <children>
+            <WebView fx:id="webView" minHeight="-Infinity" minWidth="-Infinity" prefHeight="586.0" prefWidth="1056.0" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
