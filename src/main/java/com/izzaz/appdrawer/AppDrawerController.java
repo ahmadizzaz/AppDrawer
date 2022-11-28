@@ -77,7 +77,7 @@ public class AppDrawerController implements Initializable {
 
     @FXML
     protected void onGridClick(MouseEvent e){
-//        Node clickedNode = e.getPickResult().getIntersectedNode();//
+//        Node clickedNode = e.getPickResult().getIntersectedNode();
 //        Button del = new Button("Delete");
 //        Button open = new Button("Open");
 //        Button cancel = new Button("Cancel");
