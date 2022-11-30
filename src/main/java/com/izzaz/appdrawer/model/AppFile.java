@@ -6,9 +6,9 @@ import lombok.Data;
 @Data
 @Builder
 public class AppFile {
-    private String name;
-    private String path;
-    private String htmlCode;
+    private String id;
     private String displayName;
-    private String displayPic;
+    private String pathToApp;
+    private String pathToImage;
+    private String htmlCode;
 }

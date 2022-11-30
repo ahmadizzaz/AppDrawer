@@ -1,0 +1,21 @@
+
+
+#image-pane{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);
+    -fx-padding: 10;
+    -fx-background-color: firebrick;
+    -fx-background-radius: 5;
+}
+
+
+
+/*#appVbox{*/
+/*    -fx-effect: dropshadow(three-pass-box, #FFFFFF, 10, 0, 0, 0);*/
+/*    -fx-padding: 10;*/
+/*    -fx-background-radius: 5;*/
+/*}*/
+
+/*.image-view:hover{*/
+/*    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 5, 5);*/
+/*}*/
+
