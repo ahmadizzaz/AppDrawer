@@ -3,26 +3,21 @@ package com.izzaz.appdrawer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class AppDrawerMain extends Application {
-
+    private double xOffset = 0;
+    private double yOffset = 0;
 
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(AppDrawerMain.class.getResource("main.fxml"));
         Parent root = (Parent) fxmlLoader.load();
+        AppDrawerController controller = (AppDrawerController)fxmlLoader.getController();
+        controller.setStageAndSetupListeners(stage);
 
-
-        Scene scene = new Scene(root, 1280, 720);
-        String css = this.getClass().getResource("application.css").toExternalForm();
-        scene.getStylesheets().add(css);
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
-        stage.show();
     }
 
     public static void main(String[] args) {

@@ -1,28 +1,52 @@
 .root{
-    -fx-background-color:  #121212;
+    -fx-background-color:  #16161a;
+}
+
+#borderPane{
+    -fx-background-color:  #16161a;
+
+}
+
+#categoryVBox{
+    -fx-background-color:  #72757e;
+    -fx-border-radius: 50px;
+    -fx-border-insets: 0;
 }
 
 #btn{
-    -fx-background-color:  #6B728E;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-insets: 0;
+    -fx-background-color: #7f5af0;
 }
 
 #btn:hover{
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 5, 5);
+    -fx-effect: dropshadow(three-pass-box, #000000, 20, 0, 5, 5);
 }
 
-.image-view{
-    -fx-padding: 200;
+#refreshButton{
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-insets: 0;
+    -fx-background-color: #7f5af0;
 }
 
-.image-view:hover{
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 5, 5);
+#refreshButton:hover{
+    -fx-effect: dropshadow(three-pass-box, #000000, 20, 0, 5, 5);
 }
+/*.image-view{*/
+/*    -fx-padding: 200;*/
+/*}*/
+
+/*.image-view:hover{*/
+/*    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 5, 5);*/
+/*}*/
 
 .text{
     -fx-padding: 100;
     -fx-end-margin: 100;
 }
 
-.scroll-pane{
-    -fx-background-color: #404258;
-}
+/*.scroll-pane{*/
+/*    -fx-background-color: #404258;*/
+/*}*/

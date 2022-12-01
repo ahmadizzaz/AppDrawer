@@ -15,6 +15,8 @@ module com.izzaz.appdrawer {
     requires org.apache.commons.io;
     requires lombok;
     requires jdk.jsobject;
+    requires java.logging;
+    requires FX.BorderlessScene;
 
     opens com.izzaz.appdrawer to javafx.fxml;
     exports com.izzaz.appdrawer;
