@@ -18,15 +18,22 @@
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
             </VBox>
+            <Button fx:id="refreshWindowsAppButton" layoutX="982.0" layoutY="60.0" mnemonicParsing="false" onMouseClicked="#onRefreshWindowsAppButtonClick" prefHeight="32.0" prefWidth="136.0" text="Refresh Windows App" />
          </children>
       </AnchorPane>
    </center>
    <top>
       <HBox fx:id="topBorder" alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="1225.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="minimizeButton" mnemonicParsing="false" text="_" />
-            <Button fx:id="resizeButton" mnemonicParsing="false" text="O" />
-            <Button fx:id="closeButton" mnemonicParsing="false" text="X" />
+            <Button fx:id="minimizeButton" mnemonicParsing="false" prefHeight="75.0" prefWidth="28.0" text="   " />
+            <Button fx:id="resizeButton" mnemonicParsing="false" prefHeight="55.0" prefWidth="28.0" text="☐">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin></Button>
+            <Button fx:id="closeButton" mnemonicParsing="false" prefHeight="62.0" prefWidth="24.0" text="X">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin></Button>
          </children></HBox>
    </top>
 </BorderPane>

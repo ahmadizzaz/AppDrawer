@@ -48,10 +48,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 
 import static com.izzaz.appdrawer.CommonUtils.*;
@@ -70,6 +67,9 @@ public class AppDrawerController implements Initializable {
 
     @FXML
     private Button refreshButton;
+
+    @FXML
+    private Button refreshWindowsAppButton;
 
     @FXML
     private Button closeButton;
@@ -96,6 +96,7 @@ public class AppDrawerController implements Initializable {
     protected String appDataLocalDir = System.getenv("LOCALAPPDATA") + "\\IzzazAppDrawer\\";
     protected String appDataLocalDirIcon = System.getenv("LOCALAPPDATA") + "\\IzzazAppDrawer\\icon\\";
     protected String appDataLocalDirApp = System.getenv("LOCALAPPDATA") + "\\IzzazAppDrawer\\app\\";
+    protected String appDataLocalDirWindows = System.getenv("LOCALAPPDATA") + "\\IzzazAppDrawer\\windowsapp\\";
 
     protected List<AppFile> appFileList = new ArrayList<>();
 
@@ -111,11 +112,36 @@ public class AppDrawerController implements Initializable {
         FileChooser fileC = new FileChooser();
         fileC.setTitle("Open File");
         File file = fileC.showOpenDialog(stage);
+        log(file);
         if (Objects.nonNull(file)){
-            var fileNameNoExt = FilenameUtils.removeExtension(file.getName());
+            log(file);
+            initNewApp(file);
+        }
+        refreshButton.fire();
+    }
+
+    @FXML
+    public void onRefreshWindowsAppButtonClick() {
+        log("In here");
+        if (Files.exists(Path.of(appDataLocalDirWindows))){
+            ArrayList<File>fileList = (ArrayList<File>) FileUtils.listFiles(new File(appDataLocalDirWindows), null,true);
+            fileList.forEach(file -> {
+                if (file.getName().contains(".lnk")){
+                    log(file);
+                    initNewApp(file);
+                }
+            });
+        }
+        refreshButton.fire();
+    }
+
+    public void initNewApp(File file){
+        var fileNameNoExt = FilenameUtils.removeExtension(file.getName());
+        String appLocation = appDataLocalDirApp + fileNameNoExt + ".txt";
+        String imgLocation = appDataLocalDirIcon + fileNameNoExt + ".png";
+        if (!Files.exists(Path.of(appLocation))){
             try{
-                String appLocation = appDataLocalDirApp + fileNameNoExt + ".txt";
-                String imgLocation = appDataLocalDirIcon + fileNameNoExt + ".png";
+
                 File newApp = new File(appLocation);
                 AppFile appFile = AppFile.builder()
                         .id(fileNameNoExt)
@@ -135,18 +161,19 @@ public class AppDrawerController implements Initializable {
                 e.printStackTrace();
             }
         }
-        refreshButton.fire();
-
 
     }
-
 
     public String loadApps(){
         appFileList.clear();
         AtomicReference<String> fullWebViewHtml = new AtomicReference<>("");
         if (Files.exists(Path.of(appDataLocalDirApp))){
             ArrayList<File>fileList = (ArrayList<File>) FileUtils.listFiles(new File(appDataLocalDirApp),null,true);
-
+            if (fileList.isEmpty()){
+                //TODO Add button in middle
+                String html = "<div class=\"vertical-center\"><button class=\"btn\" onclick=\"app.processOnClickAdd()\"><span>Add new apps</span></button></div>";
+                fullWebViewHtml.set(html);
+            }
             fileList.forEach(file -> {
                 //Create individual items for grid
                 if (file.getName().contains(".txt")){
@@ -168,32 +195,52 @@ public class AppDrawerController implements Initializable {
                 }
             });
         }
+
         return structureHtmlCode(fullWebViewHtml.get());
     }
 
     private void refreshPage(String html){
         manager.getCookieStore().removeAll();
         webEngine.loadContent(html);
+        webEngine.executeScript("location.reload(true);");
         webEngine.reload();
     }
 
     public void processOnClickOpen(String id) {
-        log("Before open");
+        log(id);
         onAppOpen(id);
-        log("After open");
     }
 
     public void processOnClickOption(String id) {
-        log("Before Delete");
         log(id);
         onEditButtonClick(id);
-        log("After Delete");
+
+    }
+
+    public void processOnClickAdd() {
+        onHelloButtonClick();
 
     }
 
     @SneakyThrows
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        //Init directories if doesnt exist
+        if (!Files.exists(Path.of(appDataLocalDir))){
+            Files.createDirectory(Path.of(appDataLocalDir));
+        }
+        if (!Files.exists(Path.of(appDataLocalDirApp))){
+            Files.createDirectory(Path.of(appDataLocalDirApp));
+        }
+        if (!Files.exists(Path.of(appDataLocalDirIcon))){
+            Files.createDirectory(Path.of(appDataLocalDirIcon));
+        }
+        if (!Files.exists(Path.of(appDataLocalDirWindows))){
+            Files.createDirectory(Path.of(appDataLocalDirWindows));
+        }
+
+
 
         refreshButton.setOnAction(event -> {
             refreshPage(loadApps());
@@ -234,6 +281,9 @@ public class AppDrawerController implements Initializable {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+            }else{
+                log("App no longer exists");
+                onAppDelete(id,app.get());
             }
         }
     }

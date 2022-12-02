@@ -47,7 +47,7 @@ public class CommonUtils {
 
     public static String generateHtmlCode(String imagePath, String displayName,String id) {
 //        return
-                return ("<div class=\"container\"><img src=\"file:/"+imagePath+"\"/><p class=\"title\">"+displayName+"</p><div class=\"overlay\"></div><div class=\"button-open\" onclick=\"app.processOnClickOpen(\'"+id+"\')\"><a href=\"#\"> Open </a></div><div class=\"button-option\" onclick=\"app.processOnClickOption(\'"+id+"\')\"><a href=\"#\"> Edit </a></div></div>");
+                return ("<div class=\"container\"><img src=\"file:/"+imagePath+"\"/><p class=\"title\">"+displayName+"</p><div class=\"overlay\"></div><div class=\"button-open\"><a href=\"#\" onclick=\"app.processOnClickOpen(\'"+id+"\')\"> Open </a></div><div class=\"button-option\"><a href=\"#\" onclick=\"app.processOnClickOption(\'"+id+"\')\"> Edit </a></div></div>");
 
     }
     public static void log(Object e){

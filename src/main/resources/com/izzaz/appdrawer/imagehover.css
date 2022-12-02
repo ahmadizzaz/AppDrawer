@@ -1,12 +1,11 @@
 /* Icon set - http://ionicons.com/ */
 /*@import url(https://fonts.googleapis.com/css?family=Raleway:400);*/
 /*@import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);*/
-
 body{
     background-color: #72757e;
     overflow-y: visible;
 }
-
+/*---------------------------------------------This is for card layouts-----------------------------------------*/
 .container {
     position: relative;
     margin-bottom: 10px;
@@ -129,3 +128,73 @@ img {
 .button-open a:hover{
     background: rgba(127, 90, 240, 0.7);
 }
+
+/*---------------------------------------------This is for middle button if empty-----------------------------------------*/
+
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+}
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
+.btn {
+    min-width: 160px;
+    width: fit-content;
+    width: -moz-fit-content;
+    background-color: white;
+    padding: 0 30px;
+    height: 50px;
+    font-family: "Open Sans", sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #000000;
+    letter-spacing: 2.8px;
+    font-weight: 700;
+    line-height: 1.6;
+    box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 0;
+}
+.btn span {
+    z-index: 1;
+    text-align: center;
+}
+.btn:before, .btn:after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    top: 0;
+    transition: all 0.4s ease;
+    background-color: #7f5af0;
+}
+.btn:before {
+    left: 0;
+}
+.btn:after {
+    right: 0;
+}
+.btn:hover {
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px -12px rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+    color: white;
+}
+.btn:hover:before, .btn:hover:after {
+    width: 51%;
+}
+
+

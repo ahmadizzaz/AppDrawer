@@ -13,27 +13,32 @@
     -fx-border-insets: 0;
 }
 
-#btn{
+#btn, #refreshButton, #refreshWindowsAppButton{
     -fx-background-radius: 10px;
     -fx-border-radius: 10px;
     -fx-border-insets: 0;
     -fx-background-color: #7f5af0;
 }
 
-#btn:hover{
+#btn:hover, #refreshButton:hover, #refreshWindowsAppButton:hover{
     -fx-effect: dropshadow(three-pass-box, #000000, 20, 0, 5, 5);
 }
 
-#refreshButton{
-    -fx-background-radius: 10px;
-    -fx-border-radius: 10px;
-    -fx-border-insets: 0;
-    -fx-background-color: #7f5af0;
+#closeButton, #minimizeButton, #resizeButton{
+    -fx-background-color: transparent;
 }
 
+#minimizeButton{
+    -fx-underline: true;
+}
+
+#closeButton:hover, #minimizeButton:hover, #resizeButton:hover{
+    -fx-text-fill: #7f5af0;
+}
 #refreshButton:hover{
     -fx-effect: dropshadow(three-pass-box, #000000, 20, 0, 5, 5);
 }
+
 /*.image-view{*/
 /*    -fx-padding: 200;*/
 /*}*/
